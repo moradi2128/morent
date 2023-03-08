@@ -1,6 +1,19 @@
 {
-    "home": {
-      "Home": "Home title",
-      "description": "Home description"
-    }
-  }
+   "app": {
+      "search": "search",
+      "accountSetting": "Account setting",
+      "menu": {
+         "profile": "Profile",
+         "setting": "Setting",
+         "logout": "Logout"
+      }
+   },
+   "cardCar": {
+      "sport": "Sport",
+      "manual": "manual",
+      "person": "People",
+      "GasolineUnit": "L",
+      "priceUnit":"Day",
+      "unitMony":"$"
+   }
+}

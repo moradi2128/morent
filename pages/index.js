@@ -1,27 +1,40 @@
+import { useState } from "react";
 
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from 'next-i18next';
-import nextI18nextConfig from "../next-i18next.config";
-import LocaleSwitcher from "../src/components/languageSwitcher";
-import { TextField } from "@mui/material";
-
+// === Layout ===
+import Layout from "@/src/containers/Layout";
+import Ads from "@/src/components/Ads";
+import ContainerBody from "@/src/containers/Layout/Container";
+import ProductContainer from "@/src/containers/Layout/ProductContainer";
+// === Components ===
+import ButtonUi from "src/subComponents/ButtonUi";
+import ReservationCars from "@/src/components/ReservationCars/ReservationCars";
+import PopularCar from "@/src/components/Products/PopularCar";
+import RecomendationCar from "@/src/components/Products/RecomendationCar";
 
 export default function Home() {
-  const { t } = useTranslation();
-  console.log('t', t)
   return (
     <>
-      <div className="mt-5">
-        <h1>{t("home.Home")}</h1>
-      </div>
+      <Layout >
+        <ContainerBody>
+          {/* === Ads === */}
+          <Ads />
+          {/* <SwiperCard/> */}
+          <ReservationCars /> 
+          {/* === Popular Car ===*/}
+          <ProductContainer title="ماشین های محبوب"
+            leftItem={
+              <ButtonUi href="/viewAll" type="outlined" sx={{ color: "#3563E9", fontSize: "12px" }}>
+                مشاهده همه
+              </ButtonUi>} >
+            <PopularCar />
+          </ProductContainer>
+          {/* ===  Recomendation Car === */}
+          <ProductContainer title="خودروی پیشنهادی">
+            <RecomendationCar />
+          </ProductContainer>
+        </ContainerBody>
+      </Layout>
     </>
   )
 }
-export const getServerSideProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common', 'employees'])),
-      // Will be passed to the page component as props
-    },
-  };
-}
+

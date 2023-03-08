@@ -1,6 +1,19 @@
 {
-    "home": {
-      "Home": "خانه",
-      "description": "خانه 2"
+  "app": {
+    "search": "جستجو",
+    "accountSetting": "منوی کاربری",
+    "menu": {
+      "profile": "پروفایل",
+      "setting": "تنظیمات",
+      "logout": "خروج"
     }
+  },
+  "cardCar": {
+    "sport": "اسپورت",
+    "manual": "دفترچه راهنما",
+    "person": "نفر",
+    "GasolineUnit": "لیتر",
+    "priceUnit": "روز",
+    "unitMony":"تومان"
   }
+}

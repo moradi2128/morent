@@ -4,12 +4,13 @@ import { prefixer } from 'stylis';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import React from 'react';
-import { ThemeProvider as TProvider } from "styled-components"
+import { ThemeProvider as TProvider, createGlobalStyle } from "styled-components"
+import px2vw from 'src/utils/px2vw';
 const cacheRtl = createCache({
   key: 'muirtl',
   stylisPlugins: [prefixer, rtlPlugin],
 });
-
+// import font from "../../assets/fonts/Shabnam.woff"
 const getDesignTokens = (mode) => ({
   direction: 'rtl',
   palette: {
@@ -17,59 +18,48 @@ const getDesignTokens = (mode) => ({
     ...(mode === "light" ?
       {
         primary: {
-          main: "#3a36db",
-          light: "#f1f4fa",
-          bgLight: "##fefefe",
-          secondary: "#809fb8"
+          main: "#3563E9",
+          light: "#F6F7F9",
+          bgWhite: "##FFFFFF",
+          secondary: "#c3d4e966"
         },
         text: {
           primary: "#06152b",
-          secondary: "#809fb8"
+          secondary: "#90A3BF"
         }
       } : {
         primary: {
           main: "#3a36db",
           light: "#050f1e",
           bgLight: "##06152b",
-          secondary: "#314355"
+          secondary: "#90A3BF"
         }, text: {
           text: {
             primary: "#f6f6f7",
-            secondary: "#314355"
+            secondary: "#90A3BF"
           }
         }
       }),
   },
   typography: {
-    fontFamily:
-      [
-        'Shabnam',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(','),
-
+    fontFamily: "Shabnam,sans-serif",
   },
-  components:{
-    TextField:{
-      borderRadius:"15px"
+  components: {
+    TextField: {
+      borderRadius: "15px",
     }
   }
 });
 const colorStyledComponents = {
-  main: "#3a36db",
-  light: "#f1f4fa",
-  bgLight: "#fefefe",
+  primary: "#3563E9",
+  secondary: "#54A6FF",
+  light: "#F6F7F9",
+  bgWhite: "#fff",
+  borderColor: "#C3D4E9",
   text: {
     primary: "#06152b",
-    secondary: "#809fb8"
+    secondary: "#90A3BF",
+    white: "#fff"
   },
   borderColor: "#e0e7ec",
   borderRadius: "15px",
@@ -96,11 +86,40 @@ export const ThemeWrapper = ({ children }) => {
     }),
     [],
   );
+  const Global = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /* body{
+    font-family: "Shabnam";
+  } */
+  a{
+    text-decoration: none;
+    color:${props => props.theme.text.secondary};
+  }
+  li{
+    list-style:none;
+  }
+  :root {
+      font-size: ${px2vw(28)};
+
+      @media (min-width: 768px) {
+        font-size: ${px2vw(18)};
+      }
+
+      @media (min-width: 1024px) {
+        font-size: ${px2vw(16)};
+      }
+    }
+`;
   const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <TProvider theme={colorStyledComponents}>
+          <Global />
           {children}
         </TProvider>
       </ThemeProvider>

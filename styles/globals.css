@@ -1,18 +1,10 @@
 @font-face {
-  font-family: 'Shabnam';
-    font-weight: normal;
-  font-style: normal;
-  src: url('../assets/fonts/Shabnam.eot');
-  /* IE9 Compat Modes */
-  src: url('../assets/fonts/Shabnam.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('../assets/fonts/Shabnam.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('../assets/fonts/Shabnam.woff') format('woff'),
-    /* Pretty Modern Browsers */
-    url('../assets/fonts/Shabnam.ttf') format('truetype'),
-    /* Safari, Android, iOS */
+  font-family: Shabnam;
+  src: url("/fonts/Shabnam.woff2");
+  format: ("woff2");
+  font-display: swap;
 }
+
 
 * {
   box-sizing: border-box;
@@ -20,14 +12,27 @@
   margin: 0;
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  font-family: 'Shabnam',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto',
-    '"Helvetica Neue"',
+  font-family: "Shabnam";
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3562e982;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3563E9;
 }

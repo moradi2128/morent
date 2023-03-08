@@ -10,7 +10,7 @@ import RecomendationCar from "@/src/components/Products/RecomendationCar";
 import styled from 'styled-components';
 import AnimationLayout from '@/src/containers/Layout/AnimationLayout';
 
-const index = () => {
+const Category = () => {
     const [filterValue, setFilterValue] = useState("")
     // const [category, setCategory] = useState(categoryData)
     // Filter change handler
@@ -43,7 +43,7 @@ const index = () => {
     )
 }
 
-export default index
+export default Category
 const GridItem = styled(Grid)`
 display:none;
 @media (min-width:768px){

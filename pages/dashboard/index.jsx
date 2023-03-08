@@ -11,7 +11,7 @@ import DetailRental from "@/src/components/Products/DetailRental"
 import TopRental from '@/src/components/TopRental'
 import RecentTransaction from '@/src/components/RecentTransaction'
 import AnimationLayout from '@/src/containers/Layout/AnimationLayout'
-const index = () => {
+const Dashboard = () => {
     return (
         <AnimationLayout>
             <Layout footer={false}>
@@ -42,7 +42,7 @@ const index = () => {
     )
 }
 
-export default index
+export default Dashboard
 
 const Wrapper = styled.div`
 display: flex;

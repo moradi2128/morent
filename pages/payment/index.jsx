@@ -14,7 +14,7 @@ import PaymentMethod from '@/src/components/payment/PaymentMethod'
 import ConfirmationForm from '@/src/components/payment/ConfirmationForm'
 import { separationOfNumbers } from 'src/utils/separationOfNumbers'
 
-const index = () => {
+const Payment = () => {
 
     var submitBillingInfo = null;
     var submitPaymentMethod = null;
@@ -84,7 +84,7 @@ const index = () => {
     )
 }
 
-export default index
+export default Payment
 const RenderPriceContainer = ({ totalTitle, price, subTitle }) => {
     return <ConatienrTotal>
         <div>

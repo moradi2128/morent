@@ -8,14 +8,14 @@ import Avatar2 from "./assets/images/Profill.png"
 
 import car from "./assets/images/car.png"
 import car1 from "./assets/images/car-1.png"
-import car2 from "./assets/images/car-2.png"
-import car3 from "./assets/images/car-3.png"
-import car4 from "./assets/images/car-4.png"
-import car5 from "./assets/images/car-5.png"
-import car6 from "./assets/images/car-6.png"
-import car7 from "./assets/images/car-7.png"
-import car8 from "./assets/images/car-8.png"
-import car9 from "./assets/images/car-9.png"
+import car2 from "./assets/images/Car-2.png"
+import car3 from "./assets/images/Car-3.png"
+import car4 from "./assets/images/Car-4.png"
+import car5 from "./assets/images/Car-5.png"
+import car6 from "./assets/images/Car-6.png"
+import car7 from "./assets/images/Car-7.png"
+import car8 from "./assets/images/Car-8.png"
+import car9 from "./assets/images/Car-9.png"
 import { CalendarDaysIcon, ChartBarIcon, ChatBubbleLeftEllipsisIcon, Cog6ToothIcon, CreditCardIcon, HomeIcon, InformationCircleIcon, RectangleStackIcon } from '@heroicons/react/24/outline';
 // === ads ===
 export const adsData = [

@@ -21,7 +21,7 @@ const AdsItem = (props) => {
             </BodyContainer>
         </Wrapper>
     )
-}
+} 
 
 export default AdsItem
 

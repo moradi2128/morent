@@ -8,12 +8,12 @@ import SwiperThumbsGallery from '@/src/components/Swiper/thumbsGallery/SwiperThu
 import Layout from '@/src/containers/Layout'
 import ContainerBody from '@/src/containers/Layout/Container'
 import ProductContainer from '@/src/containers/Layout/ProductContainer'
-import AnimationLayout from '@/src/containers/Layout/AnimationLayout'
+// import AnimationLayout from '@/src/containers/Layout/AnimationLayout'
 import styled from 'styled-components'
 
 const Product = () => {
   return (
-    <AnimationLayout>
+    // <AnimationLayout>
       <Layout>
         <ContainerBody>
           <Grid container spacing={4}>
@@ -31,7 +31,7 @@ const Product = () => {
           </ProductContainer>
         </ContainerBody>
       </Layout>
-    </AnimationLayout >
+    // </AnimationLayout >
   )
 }
 

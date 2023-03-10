@@ -2,14 +2,17 @@ import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import styled from 'styled-components'
+import AnimationLayout from './AnimationLayout'
 
 const Layout = ({ children, footer = true }) => {
     return (
-        <Wrapper>
-            <Header />
-            {children}
-            {footer && <Footer />}
-        </Wrapper>
+        // <AnimationLayout>
+            <Wrapper>
+                <Header />
+                {children}
+                {footer && <Footer />}
+            </Wrapper>
+        // </AnimationLayout>
     )
 }
 

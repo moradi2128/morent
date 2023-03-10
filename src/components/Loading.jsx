@@ -18,7 +18,7 @@ const Loading = () => {
                 <div className="loading-item3"></div>
                 <div className="loading-item4"></div>
             </LoadingContainer>
-            <ul >
+            {/* <ul >
                 <li></li>
                 <li></li>
                 <li></li>
@@ -29,7 +29,7 @@ const Loading = () => {
                 <li></li>
                 <li></li>
                 <li></li>
-            </ul>
+            </ul> */}
         </Wrapper>
     )
 }
@@ -97,7 +97,7 @@ const Wrapper = styled.div`
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
     width: 100%;
     height:100vh;
-    ul{
+    /* ul{
     position: absolute;
     top: 0;
     left: 0;
@@ -200,6 +200,6 @@ li:nth-child(10){
     border-radius: 50%;
 }
 
-}
+} */
 
 `

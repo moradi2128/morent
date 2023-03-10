@@ -21,4 +21,8 @@ color:#fff !important;
 font-weight: 500;
 font-size: 16px;
 line-height: 150%;
+transition: all .3s ease-in-out;
+&:hover{
+    transform: scale(1.15);
+}
 `

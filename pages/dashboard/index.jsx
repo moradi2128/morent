@@ -10,10 +10,10 @@ import MenuDrawer from '@/src/components/MenuDrawer'
 import DetailRental from "@/src/components/Products/DetailRental"
 import TopRental from '@/src/components/TopRental'
 import RecentTransaction from '@/src/components/RecentTransaction'
-import AnimationLayout from '@/src/containers/Layout/AnimationLayout'
+// import AnimationLayout from '@/src/containers/Layout/AnimationLayout'
 const Dashboard = () => {
     return (
-        <AnimationLayout>
+        // <AnimationLayout>
             <Layout footer={false}>
                 <Wrapper>
                     <MenuDrawer />
@@ -38,7 +38,7 @@ const Dashboard = () => {
                     </ContainerBody>
                 </Wrapper>
             </Layout>
-        </AnimationLayout>
+        //  </AnimationLayout>
     )
 }
 

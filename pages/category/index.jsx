@@ -8,7 +8,6 @@ import FilterSection from '@/src/components/Filter/FilterSection'
 import ReservationCars from '@/src/components/ReservationCars/ReservationCars'
 import RecomendationCar from "@/src/components/Products/RecomendationCar";
 import styled from 'styled-components';
-import AnimationLayout from '@/src/containers/Layout/AnimationLayout';
 
 const Category = () => {
     const [filterValue, setFilterValue] = useState("")
@@ -25,7 +24,7 @@ const Category = () => {
     };
 
     return (
-        <AnimationLayout>
+        // <AnimationLayout>
             <Layout >
                 <Grid container columns={14} >
                     <GridItem item md={3} sx={{ position: "relative", maxWidth: "360px" }}>
@@ -39,7 +38,7 @@ const Category = () => {
                     </Grid>
                 </Grid>
             </Layout>
-        </AnimationLayout>
+        // </AnimationLayout>
     )
 }
 

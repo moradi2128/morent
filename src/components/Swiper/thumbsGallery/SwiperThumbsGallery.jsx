@@ -29,8 +29,8 @@ const SwiperThumbsGallery = (props) => {
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 modules={[Thumbs]}
             >
-                {images.map((img) => {
-                    return <SwiperSlide>
+                {images.map((img, index) => {
+                    return <SwiperSlide key={index}>
                         <Image {...img} />
                     </SwiperSlide>
                 })}
@@ -45,8 +45,8 @@ const SwiperThumbsGallery = (props) => {
                 // watchSlidesProgress={true}
                 modules={[Navigation, Thumbs]}
             >
-                {images.map((img) => {
-                    return <SwiperSlide>
+                {images.map((img, index) => {
+                    return <SwiperSlide key={index}>
                         <Image {...img} />
                     </SwiperSlide>
                 })}

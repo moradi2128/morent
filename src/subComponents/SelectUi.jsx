@@ -61,14 +61,14 @@ export default function SelectUi({ data, placeholder, label, onSelect, styleCont
                     onChange={handleChange}
                     renderValue={(selected) => {
                         if (selected?.length === 0) {
-                            return <p style={{ fontSize: "12px", fontFamily: "inherit", color: "#90A3BF" }}>{placeholder}</p>;
+                            return <Placeholder>{placeholder}</Placeholder>;
                         }
                         return selected;
                     }}
                     MenuProps={MenuProps}
                 >
                     <MenuItem disabled value="">
-                        <p style={{ fontSize: "14px", fontFamily: "inherit", color: "#" }}>{placeholder}</p>
+                        <Placeholder >{placeholder}</Placeholder>
                     </MenuItem>
                     {data?.map((item) => (
                         <MenuItem
@@ -90,6 +90,9 @@ font-size: 14px;
 margin-bottom: 5px;
 line-height: 150%;
 color:${props => props.theme.text.primary};
+@media (max-width:748px){
+    font-size: 11px;
+}
 `
 const SelectCustom = styled(Select)`
 &.Mui-disabled{
@@ -100,4 +103,12 @@ cursor:pointer;
 	&.Mui-disabled:before {
         border-bottom-style: solid;
     }
+`
+const Placeholder = styled.p`
+font-size: 12px;
+ font-family: inherit;
+ color:${props => props.theme.text.secondary};
+ @media (max-width:768px){
+    font-size: 9px;
+ }
 `

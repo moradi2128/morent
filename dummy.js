@@ -45,10 +45,10 @@ export const adsData = [
         },
     },
 ]
-export const productData = [
+export const producstData = [
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -64,7 +64,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: "Koenigsegg",
         type: "sport",
         price: "1900000",
@@ -80,7 +80,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -96,7 +96,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -112,7 +112,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -128,7 +128,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -144,7 +144,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -160,7 +160,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -176,7 +176,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -192,7 +192,7 @@ export const productData = [
     },
     {
         id: uuidv4(),
-        slug:uuidv4().slice(-8),
+        slug: uuidv4().slice(-8),
         title: " Nissan GT - R",
         type: "sport",
         price: "1500000",
@@ -207,6 +207,25 @@ export const productData = [
     },
 
 ]
+export const productData =
+{
+    id: uuidv4(),
+    slug: uuidv4().slice(-8),
+    title: " Nissan GT - R",
+    type: "sport",
+    price: "1500000",
+    newPrice: "1300000",
+    priceUnit: "day",
+    btnTittle: "اکنون اجاره کنید",
+    alt: "best car",
+    bgImage: car,
+    tankVolume: 90,
+    capacity: 6,
+    manual: "manual",
+    filter: ["اسپورت", "SUV"],
+    images: [car, car1, car2, car3]
+}
+
 
 export const footerMenuData = [
     {
@@ -402,7 +421,7 @@ export const commentData = {
 export const menuDrawerData = [
     {
         id: 1234,
-        title:"منوی اصلی",
+        title: "منوی اصلی",
         children: [
             {
                 id: 0,
@@ -468,4 +487,12 @@ export const menuDrawerData = [
 
         ]
     }
+]
+
+export const locationSelecData = [
+    { label: "تهران", value: "tehran" },
+    { label: "شیراز", value: "shiraz" },
+    { label: "اصفهان", value: "esfahan" },
+    { label: "مشهد", value: "mashad" },
+    { label: "گرگان", value: "gorgan" },
 ]

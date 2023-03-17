@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import RatingUi from 'src/subComponents/RatingUi'
 import styled from 'styled-components'
 import CardContainer from '../CardContaienr'
@@ -7,6 +7,7 @@ import CardFooter from './CardFooter'
 
 
 const ProductDetail = () => {
+    const [showDetail, setShowDetail] = useState(false)
     const RenderSpecifications = ({ item }) => {
         return <Grid item xs={6}>
             <SpecificationsContainer>
@@ -55,9 +56,12 @@ const ProductDetail = () => {
             </Header>
             {/* === Body === */}
             <Body>
-                <Discription>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                </Discription>
+                <DiscriptionContaioner>
+                    <Discription showDetail={showDetail} onClick={() => setShowDetail(!showDetail)}>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                    </Discription>
+                    <DiscriptionBtn onClick={() => setShowDetail(!showDetail)}>{showDetail ? "مخفی کردن" : "نمایش بیشتر"}</DiscriptionBtn>
+                </DiscriptionContaioner>
                 <Grid container columnSpacing={8} rowSpacing={2}>
                     {
                         specifications?.map((item, index) => {
@@ -108,7 +112,11 @@ color:${props => props.theme.text.secondary};
 const Body = styled.div`
 margin-bottom: 32px;
 `
+const DiscriptionContaioner = styled.div`
+position: relative;
+`
 const Discription = styled.p`
+    overflow: hidden;
 font-style: normal;
 font-weight: 400;
 font-size: 12px;
@@ -116,6 +124,42 @@ line-height: 26px;
 text-align: justify;
 color:${props => props.theme.text.secondary};
 margin-bottom:2rem;
+
+cursor: pointer;
+position: relative;
+display: -webkit-box;
+-webkit-line-clamp:${props => props.showDetail ? "unset" : 4} ;
+-webkit-box-orient: vertical;
+
+
+& button {
+    padding: 3px !important;
+    font-size: 10px !important;
+    font-weight: 400 !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+&:after {
+content: "";
+width: ${props => props.showComment ? "unset" : "120%"};
+height: 30px;
+background: linear-gradient(90deg, #ffffff 10%, transparent);
+position: absolute;
+bottom: 0;
+left: 0;
+transition: all 0.3s ease;
+}
+`
+const DiscriptionBtn = styled.div`
+cursor: pointer;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    font-size: 10px;
+    color: gray;
+    font-weight: 600;
+    border-bottom: 1px solid gray;
 `
 const SpecificationsContainer = styled.div`
 display: flex;

@@ -1,18 +1,30 @@
 import { ChevronDownIcon, InformationCircleIcon } from '@heroicons/react/24/outline'
 import React from 'react'
+import { useRef } from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 
 const InputUi = (props) => {
     const { name, id, label, placeholder, onChange, value, error = false, errorMessage, onClick, type = "text", icon = false, readOnly = false, styleContainer } = props
     const [rotateIcon, setRotateIcon] = useState(false)
+    const [focused, setFocused] = React.useState(false)
+    const onFocus = () => setFocused(true)
+    const onBlur = () => setFocused(false)
     return (
         <FormContainer>
             <Label htmlFor={label}>
                 {label}
             </Label>
-            <InputContainer error={error} onClick={onClick && onClick} style={styleContainer}>
+            <InputContainer
+                error={error}
+
+                onClick={onClick ? onClick : null}
+                style={styleContainer}
+                focused={focused} >
                 <Input
+                    onFocus={onFocus}
+                    onBlur={onBlur}
                     readOnly={readOnly}
                     name={name} id={id} type={type} error={error} placeholder={placeholder}
                     onChange={onChange} value={value} />
@@ -59,10 +71,11 @@ border-radius: 10px;
 border: ${props => props.error ? "1px" : 0} solid #eb8d8d;
 transition:  all 0.3s ease;
 box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-&:focus-visible{
+outline: ${props => props.focused ? `1px solid  ${props.theme.primary}` : "unset"};
+/* &:focus-visible{
     outline: 1px solid ${props => props.theme.primary};
-}
+    outline: ${props => props.checked ? `1px solid  ${props.theme.primary}` : "unset"};
+} */
 &:hover{
     background:#f3f3f3 ;
 }

@@ -43,6 +43,8 @@ const getDesignTokens = (mode) => ({
   },
   typography: {
     fontFamily: "Shabnam,sans-serif",
+    // fontSize: px2vw(20),
+    fontSize: 15,
   },
   components: {
     TextField: {
@@ -103,7 +105,7 @@ export const ThemeWrapper = ({ children }) => {
     list-style:none;
   }
   :root {
-      font-size: ${px2vw(28)};
+      font-size: ${px2vw(55)};
 
       @media (min-width: 768px) {
         font-size: ${px2vw(18)};

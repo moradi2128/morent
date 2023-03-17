@@ -12,10 +12,11 @@ import "swiper/css/thumbs";
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import styled from "styled-components";
+import Image from "next/image";
 
-const SwiperThumbsGallery = () => {
+const SwiperThumbsGallery = (props) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+    const { images } = props
     return (
         <>
             <Swiper_one
@@ -23,40 +24,32 @@ const SwiperThumbsGallery = () => {
                     "--swiper-navigation-color": "#fff",
                     "--swiper-pagination-color": "#fff",
                 }}
-                loop={true}
+                // loop={true}
                 spaceBetween={10}
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 modules={[Thumbs]}
             >
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
+                {images.map((img) => {
+                    return <SwiperSlide>
+                        <Image {...img} />
+                    </SwiperSlide>
+                })}
+
             </Swiper_one>
             <Swiper_two
                 onSwiper={setThumbsSwiper}
-                loop={true}
+                // loop={true}
                 spaceBetween={24}
                 slidesPerView={3}
                 // freeMode={true}
                 // watchSlidesProgress={true}
                 modules={[Navigation, Thumbs]}
             >
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
-
+                {images.map((img) => {
+                    return <SwiperSlide>
+                        <Image {...img} />
+                    </SwiperSlide>
+                })}
             </Swiper_two>
         </>
     );
@@ -72,7 +65,7 @@ margin: 32px 0;
 border-radius: 10px;
 width: 100%;
 height: 100%;
-object-fit: cover;
+object-fit: scale-down;
 }
 `
 const Swiper_two = styled(Swiper)`
@@ -98,7 +91,7 @@ transition: all .2s ease;
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: scale-down;
   border-radius: 10px;
 }
 `

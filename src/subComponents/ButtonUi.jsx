@@ -65,4 +65,7 @@ position: relative;
         transform: translateY(0px);
     }
 }
+@media (max-width:768px){
+  font-size: 12px;
+}
 `

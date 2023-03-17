@@ -13,15 +13,17 @@ const AdsItem = (props) => {
             </BgContainer>
             {/* === body === */}
             <BodyContainer>
-                <Title>{title}</Title>
-                <Description>{description}</Description>
+                <div>
+                    <Title>{title}</Title>
+                    <Description>{description}</Description>
+                </div>
                 <LinkUi href={`${href}`} color={colorBtn}>
                     {btnTittle}
                 </LinkUi>
             </BodyContainer>
         </Wrapper>
     )
-} 
+}
 
 export default AdsItem
 
@@ -54,6 +56,12 @@ const BodyContainer = styled.div`
 position: relative;
 z-index:1;
 max-width:270px;
+display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    @media (max-width:768px) {
+        justify-content: space-between;
+    }
 `
 const Title = styled.h2`
 font-size: 30px;

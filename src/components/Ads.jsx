@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import styled from 'styled-components'
-import { Navigation } from "swiper";
 
 import { adsData } from "../../dummy"
 import AdsItem from './AdsItem'
@@ -13,9 +12,9 @@ const Ads = () => {
   return (
     <Wrapper>
       <Swiper
-        navigation={true}
-        modules={[Navigation]}
+        // loop={true}
         spaceBetween={15}
+        slidesPerView={1.1}
         breakpoints={{
           640: {
             slidesPerView: 1,

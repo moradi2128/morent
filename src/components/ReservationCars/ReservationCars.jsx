@@ -136,6 +136,6 @@ const BtnUi = styled(ButtonUi)`
 @media(max-width:768px){
     z-index: 1;
     position: absolute;
-    top: 46%;
+    top: 49%;
 }
 `

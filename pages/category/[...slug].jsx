@@ -10,27 +10,29 @@ import ContainerBody from '@/src/containers/Layout/Container'
 import ProductContainer from '@/src/containers/Layout/ProductContainer'
 // import AnimationLayout from '@/src/containers/Layout/AnimationLayout'
 import styled from 'styled-components'
+import { productData } from 'dummy'
 
 const Product = () => {
+  console.log('productData', productData)
   return (
     // <AnimationLayout>
-      <Layout>
-        <ContainerBody>
-          <Grid container spacing={4}>
-            <GridCustom item xs={12} md={6} >
-              <SwiperThumbsGallery />
-            </GridCustom>
-            <Grid item sm={12} md={6} >
-              <ProductDetail />
-            </Grid>
+    <Layout>
+      <ContainerBody>
+        <Grid container spacing={4}>
+          <GridCustom item xs={12} md={6} >
+            <SwiperThumbsGallery images={productData?.images} />
+          </GridCustom>
+          <Grid item sm={12} md={6} >
+            <ProductDetail data={productData} />
           </Grid>
-          <Reviews />
-          {/* === Recommended */}
-          <ProductContainer title="خودروی پیشنهادی">
-            <RecomendationCar />
-          </ProductContainer>
-        </ContainerBody>
-      </Layout>
+        </Grid>
+        <Reviews />
+        {/* === Recommended */}
+        <ProductContainer title="خودروی پیشنهادی">
+          <RecomendationCar />
+        </ProductContainer>
+      </ContainerBody>
+    </Layout>
     // </AnimationLayout >
   )
 }

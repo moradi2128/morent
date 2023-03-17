@@ -40,12 +40,18 @@ font-weight: 700;
 font-size: 16px;
 line-height: 25px;
 color:${props => props.theme.text.primary};
+@media (max-width:768px){
+    font-size: 12px;
+}
 `
 const OldPrice = styled.s`
 color:${props => props.theme.text.secondary};
 font-weight: 700;
 font-size: 12px;
 line-height: 18px;
+@media (max-width:768px){
+    font-size: 10px;
+}
 `
 const UnitPrice = styled.span`
 color:${props => props.theme.text.secondary};

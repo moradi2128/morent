@@ -55,11 +55,11 @@ const CardCarItem = (props) => {
       </Header >
       <BodeContainer mobileMode={mobileMode}>
         {/* ===  Image === */}
-        <Link href={`${href?.patchname}`}>
+        <ImageLink href={`${href?.patchname}`} >
           <ImageContainer mobileMode={mobileMode}>
             <Image src={bgImage} alt={alt} layout="responsive" />
           </ImageContainer>
-        </Link>
+        </ImageLink>
         {/* === Description === */}
         <DescriptionContainer mobileMode={mobileMode}>
           <DescriptionItem mobileMode={mobileMode}>
@@ -131,6 +131,7 @@ color:${props => props.theme.text.secondary};
 `
 const ImageContainer = styled.div`
 width:80%;
+min-height: 100px;
 height:100%;
 max-height:110px;
 justify-content: center;
@@ -148,6 +149,9 @@ flex: ${props => props.mobileMode && 4};
   z-index: 1;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
 } */
+`
+const ImageLink = styled(Link)`
+  width:100%
 `
 const DescriptionContainer = styled.div`
 display:flex;
@@ -175,7 +179,7 @@ const BodeContainer = styled.div`
     @media (max-width:768px){
       display: flex;
       justify-content: space-between;
-      gap: 5rem;
+      gap: 1rem;
       flex-direction:${props => props.mobileMode ? "row" : "column"};
 
     }

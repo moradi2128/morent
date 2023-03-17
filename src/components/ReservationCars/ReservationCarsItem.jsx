@@ -25,11 +25,11 @@ const ReservationCarsItem = (props) => {
   ];
   return (
     <Wrapper style={style}>
-      <TitleContainer>
+      <div>
         <Mark title={title} color={colorMark} />
-        <Grid container spacing={1.5} sx={{ margin: 0, justifyContent: "space-between", width: "100%" }}>
+        <Grid container spacing={1.4} sx={{ margin: 0, justifyContent: "space-between", width: "100%" }}>
           {/* === Location === */}
-          <Grid item xs={4}>
+          <Grid item xs={3}>
             <SelectUi data={names} value={reservationValue?.location} onSelect={(value) => onChangeSelectLocation(value)} placeholder="انتخاب شهر خود" label="موقعیت مکانی" />
           </Grid>
           <Grid item xs={"auto"}>
@@ -56,7 +56,7 @@ const ReservationCarsItem = (props) => {
             <SelectUi data={times} value={reservationValue?.time} onSelect={(value) => onChangeSelectTime(value)} placeholder="انتخاب زمان" label="زمان" />
           </Grid>
         </Grid>
-      </TitleContainer>
+      </div>
     </Wrapper>
   )
 }
@@ -67,12 +67,12 @@ flex:1;
 background:#FFFFFF;
 border-radius: 15px;
 padding:26px 48px;
+.MuiGrid-item{
+  padding-right:0;
+}
 @media(max-width:768px){
     width: 100%;
-    padding:25px;
+    padding:15px;
     margin-top: 32px;
 }
-`
-const TitleContainer = styled.div`
-
 `

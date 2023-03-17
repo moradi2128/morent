@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Avatar, Badge, Button, Divider, IconButton, InputAdornment, Menu, MenuItem, TextField, Tooltip } from '@mui/material'
+import { Avatar, Badge, Button, Divider, IconButton, InputAdornment, Menu, MenuItem, TextField, Tooltip, Typography } from '@mui/material'
 import styled from 'styled-components'
 import profile from "../../../assets/images/pic.png"
 import {
-    Cog6ToothIcon, BellIcon, HeartIcon, MagnifyingGlassIcon, AdjustmentsHorizontalIcon, UserCircleIcon, ArrowRightOnRectangleIcon, AdjustmentsVerticalIcon
+    Cog6ToothIcon, BellIcon, HeartIcon, MagnifyingGlassIcon, AdjustmentsHorizontalIcon, UserCircleIcon, ArrowRightOnRectangleIcon, AdjustmentsVerticalIcon, Bars4Icon, XMarkIcon
 } from '@heroicons/react/24/outline'
 import IconUi from 'src/subComponents/IconUi'
 const Header = (props) => {
     const [anchorEl, setAnchorEl] = useState(null);
+    const [menuState, setMenuState] = useState(false);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -22,11 +23,11 @@ const Header = (props) => {
                 <RightContainer>
                     {/* === Avatar === */}
                     <div>
-                        <Tooltip title="جستجو">
+                        <Tooltip title="پروفایل">
                             <IconButton
                                 onClick={handleClick}
                                 size="small"
-                                sx={{ ml: 2 }}
+                                sx={{ ml: 1 }}
                                 aria-controls={open ? 'account-menu' : undefined}
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
@@ -86,47 +87,104 @@ const Header = (props) => {
                             </MenuItem>
                         </Menu>
                     </div>
-                    {/* === setting === */}
-                    <Tooltip title="تنظیمات">
-                        <IconButton
-                            // onClick={handleClick}
-                            size="large"
-                            sx={{ ml: 1 }}
-                        >
-                            <IconUi>
-                                <Cog6ToothIcon />
-                            </IconUi>
-                        </IconButton>
-                    </Tooltip>
-                    {/* === notiction === */}
-                    <Tooltip title="پیغام ها">
-                        <IconButton
-                            // onClick={handleClick}
-                            size="large"
-                            sx={{ ml: 1 }}
-                        >
-                            <Badge color="error" variant="dot">
+                    {/* === Menu in defalut mode === */}
+                    <MenuDefalut>
+                        {/* === setting === */}
+                        <Tooltip title="تنظیمات">
+                            <IconButton
+                                // onClick={handleClick}
+                                size="large"
+                                sx={{ ml: 1 }}
+                            >
                                 <IconUi>
-                                    <BellIcon />
+                                    <Cog6ToothIcon />
                                 </IconUi>
-                            </Badge>
-                        </IconButton>
-                    </Tooltip>
-                    {/* === licked === */}
-                    <Tooltip title="پسندیده ها">
+                            </IconButton>
+                        </Tooltip>
+                        {/* === notiction === */}
+                        <Tooltip title="پیغام ها">
+                            <IconButton
+                                // onClick={handleClick}
+                                size="large"
+                                sx={{ ml: 1 }}
+                            >
+                                <Badge color="error" variant="dot">
+                                    <IconUi>
+                                        <BellIcon />
+                                    </IconUi>
+                                </Badge>
+                            </IconButton>
+                        </Tooltip>
+                        {/* === licked === */}
+                        <Tooltip title="پسندیده ها">
+                            <IconButton
+                                // onClick={handleClick}
+                                size="large"
+                                sx={{ ml: 1 }}
+                            >
+                                <IconUi>
+                                    <HeartIcon />
+                                </IconUi>
+                            </IconButton>
+                        </Tooltip>
+                    </MenuDefalut>
+                    {/* === Menu iocn in mobile mode === */}
+                    <MenuWrapper>
+                        <MenuWrapperItemAnimation isOpen={menuState} >
+                            <MenuWrapperItem>
+                                {/* === setting === */}
+                                <Tooltip title="تنظیمات">
+                                    <IconButton
+                                        // onClick={handleClick}
+                                        size="large"
+                                        sx={{ ml: 1 }}
+                                    >
+                                        <IconUi>
+                                            <Cog6ToothIcon />
+                                        </IconUi>
+                                    </IconButton>
+                                </Tooltip>
+                                {/* === notiction === */}
+                                <Tooltip title="پیغام ها">
+                                    <IconButton
+                                        // onClick={handleClick}
+                                        size="large"
+                                        sx={{ ml: 1 }}
+                                    >
+                                        <Badge color="error" variant="dot">
+                                            <IconUi>
+                                                <BellIcon />
+                                            </IconUi>
+                                        </Badge>
+                                    </IconButton>
+                                </Tooltip>
+                                {/* === licked === */}
+                                <Tooltip title="پسندیده ها">
+                                    <IconButton
+                                        // onClick={handleClick}
+                                        size="large"
+                                        sx={{ ml: 1 }}
+                                    >
+                                        <IconUi>
+                                            <HeartIcon />
+                                        </IconUi>
+                                    </IconButton>
+                                </Tooltip>
+                            </MenuWrapperItem>
+                        </MenuWrapperItemAnimation>
                         <IconButton
-                            // onClick={handleClick}
+                            onClick={() => setMenuState(!menuState)}
                             size="large"
                             sx={{ ml: 1 }}
                         >
                             <IconUi>
-                                <HeartIcon />
+                                {menuState ? <XMarkIcon /> : <Bars4Icon />}
                             </IconUi>
                         </IconButton>
-                    </Tooltip>
+                    </MenuWrapper>
                 </RightContainer>
                 <FilterContainer>
-                    <Input size="small" placeholder="جستجو" variant="outlined"
+                    <Input size="small" placeholder="جستجو ..." variant="outlined"
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position="start">
@@ -151,7 +209,9 @@ const Header = (props) => {
                         <IconUi><AdjustmentsVerticalIcon /></IconUi>
                     </FilterIconContainer>
                 </FilterContainer>
-                <Logo href="/">morent</Logo>
+                <Logo href="/">
+                    <Typography variant="h4">morent</Typography>
+                </Logo>
             </Wrapper >
         </Container >
     )
@@ -184,8 +244,8 @@ background: ${props => props.theme.bgWhite};
 border-color: ${props => props.theme.borderColor};
 @media (max-width:768px){
     border: unset;
-    flex-flow: wrap-reverse;
-    align-items: baseline;
+    flex-flow: column-reverse;
+    align-items: inherit;
 }
 `
 const RightContainer = styled.div`
@@ -193,16 +253,24 @@ flex:5;
 display:flex;
 align-items:center;
 gap:10px;
+@media (max-width:768px) {
+    justify-content: space-between;    
+    order: 3;
+}
 `
 const Logo = styled(Link)`
 flex:1;
 text-decoration: none;
 font-size: 30px;
-font-weight: 700;
 text-transform: uppercase;
+h4{
+    font-weight: 700;
+}
 color:${props => props.theme.primary};
 @media (max-width:768px){
-    margin-bottom:32px;
+    margin:15px 0;
+    display: flex;
+    order:2
 }
 `
 const Input = styled(TextField)`
@@ -237,7 +305,7 @@ align-items:center;
 gap:1.5rem;
 flex:3;
 @media (max-width:768px){
-    order:-1;
+    order:2;
     flex:1 0 100%; 
 
 }
@@ -260,6 +328,37 @@ display:none !important;
 `
 const AdjustmentsHorizontalIconContainer = styled.div`
 @media (max-width:768px){
+display:none
+}
+`
+// === Menu ===
+const MenuDefalut = styled.div`
+display: none;
+@media (min-width:768px){
+display:flex;
+flex-direction: row;
+align-items: center;
+}
+`
+const MenuWrapper = styled.div`
+display:flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+@media (min-width:768px){
+display:none
+}
+`
+const MenuWrapperItem = styled.div`
+display:flex;
+flex-direction: row;
+align-items: center;
+`
+const MenuWrapperItemAnimation = styled.div`
+overflow: hidden;
+transition: all .3s ease;
+width:${props => props.isOpen ? "100%" : "0"};
+@media (min-width:768px){
 display:none
 }
 `

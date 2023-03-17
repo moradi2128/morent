@@ -17,8 +17,29 @@ const PaymentCardForm = ({ props }) => {
                 errorMessage={errors?.cardNumber}
                 error={errors?.cardNumber && touched?.cardNumber}
             />
-
-            <CalenderDatePicker inputStyle={{ backgroundColor: "#fff" }} label="تاریخ انقضا" placeholder="تاریخ انقضا" errorMessage="لطفا تاریخ کارت خود را وارد کنید" />
+            {/* <CalenderDatePicker inputStyle={{ backgroundColor: "#fff" }} label="تاریخ انقضا" placeholder="تاریخ انقضا" errorMessage="لطفا تاریخ کارت خود را وارد کنید" /> */}
+            <CardHolderContainer >
+                <InputUi
+                    styleContainer={{ backgroundColor: "#fff" }}
+                    label="تاریخ انقضا"
+                    placeholder="ماه"
+                    name="cardHolder"
+                    onChange={handleChange}
+                    // value={values?.cardHolder}
+                    errorMessage="لطفا تاریخ کارت خود را وارد کنید"
+                    error={errors?.cardHolder && touched?.cardHolder}
+                />
+                <InputUi
+                    styleContainer={{ backgroundColor: "#fff" }}
+                    label=" "
+                    placeholder="سال"
+                    name="cardHolder"
+                    onChange={handleChange}
+                    // value={values?.cardHolder}
+                    errorMessage="لطفا تاریخ کارت خود را وارد کنید"
+                    error={errors?.cardHolder && touched?.cardHolder}
+                />
+            </CardHolderContainer>
 
             <InputUi
                 styleContainer={{ backgroundColor: "#fff" }}
@@ -54,4 +75,9 @@ grid-template-columns: 1fr;
 @media (min-width:900px) {
     grid-template-columns: repeat(2,1fr);
 }
+`
+const CardHolderContainer = styled.div`
+display: flex;
+align-items: end;
+gap:1rem;
 `

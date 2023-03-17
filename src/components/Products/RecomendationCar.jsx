@@ -1,4 +1,4 @@
-import { productData } from 'dummy'
+import { producstData } from 'dummy'
 import React, { useMemo, useState } from 'react'
 import CardCarItem from './CardCarItem'
 import ProductLayout from '@/src/containers/Layout/ProductLayout'
@@ -6,10 +6,10 @@ import ButtonUi from 'src/subComponents/ButtonUi'
 import styled from 'styled-components'
 import CardSkeleton from '../skeleton/CardSkeleton'
 import axios from "../../api/axios-orders"
-const RecomendationCar = ({ data = productData }) => {
+const RecomendationCar = ({ data = producstData }) => {
     const [count, setCount] = useState(1)
     const getPage = async (page = count) => {
-        axios.post('/cars.json', productData)
+        axios.post('/cars.json', producstData)
             .then(response => console.log(response))
             .catch(error => console.log(error));
         // TODO => fetch data

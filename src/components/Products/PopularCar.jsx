@@ -1,4 +1,4 @@
-import { productData } from 'dummy'
+import { producstData } from 'dummy'
 import React from 'react'
 import CardCarItem from './CardCarItem'
 import CardSkeleton from '../skeleton/CardSkeleton'
@@ -34,12 +34,12 @@ const PopularCar = (props) => {
                     },
                 }}
             >
-                {productData.length == 0
+                {producstData.length == 0
                     ?
                     [1, 2, 3, 4].map(item => {
                         return <SwiperSlide key={item}><CardSkeleton /></SwiperSlide>
                     })
-                    : productData.slice(0, 4).map(car => {
+                    : producstData.slice(0, 4).map(car => {
                         return <SwiperSlide key={car.id}>
                             <CardCarItem href={{ patchname: `/category/${car.slug}/${car.title}`, query: { slug: car.id } }} car={car} key={car.id} />
                         </SwiperSlide>

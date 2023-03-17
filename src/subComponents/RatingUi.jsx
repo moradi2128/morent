@@ -15,6 +15,7 @@ const RatingUi = (props) => {
         >
             {label && <Typography component="legend">{label}</Typography>}
             <Rating
+                // size="large"
                 name="simple-controlled"
                 value={valueRating}
                 onChange={(event, newValue) => {

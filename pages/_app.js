@@ -31,22 +31,32 @@ const LoadingHandler = () => {
 }
 
 const App = ({ Component, pageProps }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
   return (
-      <ThemeWrapper>
+    <>
+      {isLoading ? <Loading /> : <ThemeWrapper>
         <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
           <LoadingHandler />
           <Component {...pageProps} />
         </AnimatePresence>
-      </ThemeWrapper>
+      </ThemeWrapper>}
+    </>
+
   )
 
 }
 
 export default appWithTranslation(App, nextI18nextConfig)
 
-      {/* <style jsx global>{`
+{/* <style jsx global>{`
         :root {
           /* ... */
-          // --cooper-font: ${ShabnamFont.style.fontFamily};
-        }
+  // --cooper-font: ${ShabnamFont.style.fontFamily};
+}
       // `}</style> */}

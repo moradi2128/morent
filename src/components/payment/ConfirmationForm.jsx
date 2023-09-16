@@ -17,10 +17,10 @@ const ConfirmationForm = ({ submitHandler }) => {
             <CheckboxContainar>
                 <CheckboxUi
                     checked={sendMail}
-                    onChange={(e) => setSeneMail(e.target.checked)} >
-                    <Label>
-                        من با ارسال ایمیل های بازاریابی و خبرنامه موافقم. بدون هرزنامه، قول داده شده!
-                    </Label>
+                    onChange={(e) => setSeneMail(e.target.checked)}
+                    label="من با ارسال ایمیل های بازاریابی و خبرنامه موافقم. بدون هرزنامه، قول داده شده!"
+                >
+
                 </CheckboxUi>
             </CheckboxContainar>
             <CheckboxContainar>

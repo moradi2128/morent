@@ -2,7 +2,7 @@ import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
 import { FormControlLabel } from '@mui/material';
 const CheckboxUi = (props) => {
-    const { value, size, onChange, children, checked = false } = props
+    const { value, size, onChange, label, checked = false } = props
 
     // const [checked, setChecked] = React.useState(value || false);
     const handleChange = (event) => {
@@ -23,7 +23,7 @@ const CheckboxUi = (props) => {
                     {...props}
                 />
             }
-            label={children}
+            label={label}
         />
     )
 }
